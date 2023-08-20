@@ -1,0 +1,18 @@
+<nav class="left-sidebar-menu">
+    <ul *ngFor="let menuGroup of menu">
+      <li>
+        <h3>{{ menuGroup.title }}</h3>
+        <ul>
+          <li *ngFor="let item of menuGroup.listItems">
+            <a [routerLink]="item.url" routerLinkActive="active">
+              <div class="menu-item">
+                <img src="assets/icons/{{ item.icon }}" alt="{{ item.title }} icon" />
+                <span>{{ item.title }}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  

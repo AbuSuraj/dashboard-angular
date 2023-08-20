@@ -1,0 +1,17 @@
+<div class="top-navbar">
+    <div class="logo">
+      <p routerLink="/" class="styled-text"><span class="pixel-color">Pixel</span><span class="colored-text">Wave</span> Technology</p>
+    </div>
+    <div class="icons">
+        <div class="icon" class="icon" (click)="toggleNotificationCard()"><img src="assets/icons/notifications.svg" alt=""></div>
+      <div class="icon user-icon">
+        <img src="assets/icons/user.svg" alt="user-icon">
+      </div>
+      <div class="icon settings-icon"><img src="assets/icons/settings.svg" alt=""></div>
+      <div class="pl-2 cursor-pointer" *ngIf="!islogout"><p (click)="logout()">Logout</p></div>
+
+    </div>
+  </div>
+  <app-notification-card *ngIf="showNotificationCard"></app-notification-card>
+<div class="overlay" *ngIf="showNotificationCard" (click)="toggleNotificationCard()"></div>
+  
