@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -38,25 +38,25 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.authService.loginWithEmail(email, password)
-      .then(() => {
-        // Login successful
-        this.router.navigate(['/dashboard']);
-      })
-      .catch((error) => {
-        // Handle error
-      });
+      // .then(() => {
+      //   // Login successful
+      //   this.router.navigate(['/dashboard']);
+      // })
+      // .catch((error) => {
+      //   // Handle error
+      // });
   }
 
   loginWithGoogle() {
     this.authService.loginWithGoogle()
-      .then(() => {
-        // Google login successful
-        this.router.navigate(['/dashboard']);
-      })
-      .catch((error) => {
-        // Handle error
-        console.log(error);
-      });
+      // .then(() => {
+      //   // Google login successful
+      //   this.router.navigate(['/dashboard']);
+      // })
+      // .catch((error) => {
+      //   // Handle error
+      //   console.log(error);
+      // });
   }
 
   // onSubmit(): void {

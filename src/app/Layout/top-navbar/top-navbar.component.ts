@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-top-navbar',
@@ -9,21 +9,25 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class TopNavbarComponent  {
   showNotificationCard: Boolean = false;
-  islogout: Boolean = false;
-  constructor(private authService: AuthService, private router: Router) {}
+   user:any;
+   isLougout!: boolean;
+  constructor(public authService: AuthService, private router: Router) {
  
-  logout() {
-    this.authService.logout()
-      .then(() => {
+  }
+ 
+  logout() { 
+    this.authService.logout(); 
+
+      // .then(() => {
      
-        console.log('logged out');
-        this.router.navigate(['account/login']);
-        this.islogout = true;
-        // Redirect to the login page or desired location
-      })
-      .catch((error) => {
-        // Handle error
-      });
+      //   console.log('logged out');
+      //   this.router.navigate(['account/login']);
+      //   this.islogout = true;
+      //   // Redirect to the login page or desired location
+      // })
+      // .catch((error) => {
+      //   // Handle error
+      // });
   }
 
   toggleNotificationCard() {

@@ -23,6 +23,11 @@ import { AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
 import { ToastrModule } from 'ngx-toastr';
 
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     TopNavbarComponent,
     NotificationCardComponent,
     FooterComponent, 
-    MainLayoutComponent, MinimalLayoutComponent, AccountComponent, LoginComponent, RegistrationComponent,
+    MainLayoutComponent, MinimalLayoutComponent, AccountComponent, LoginComponent, RegistrationComponent, ForgotPasswordComponent, VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,10 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserAnimationsModule, // Add BrowserAnimationsModule
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(), 
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+     AngularFirestoreModule
   ],
   exports: [TopNavbarComponent, FooterComponent],
   providers: [],

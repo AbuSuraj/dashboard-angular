@@ -5,7 +5,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegistrationComponent } from './account/registration/registration.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './shared/auth/auth.guard';
+import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
 
 // const routes: Routes = [
 //   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -19,9 +21,11 @@ const routes: Routes = [
     path: 'account',
     component: AccountComponent,
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'registration', component: RegistrationComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' }
+      { path: 'forgot-password', component: ForgotPasswordComponent },
+      { path: 'verify-email-address', component: VerifyEmailComponent },
     ]
   },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
