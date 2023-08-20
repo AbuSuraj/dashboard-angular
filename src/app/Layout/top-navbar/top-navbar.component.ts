@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth/auth.service';
-
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-top-navbar',
   templateUrl: './top-navbar.component.html',
@@ -12,8 +12,20 @@ export class TopNavbarComponent  {
    user:any;
    isLougout!: boolean;
   constructor(public authService: AuthService, private router: Router) {
- 
-  }
+  this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event:any) => {
+      const url = event.urlAfterRedirects;
+
+      // Check if the URL contains the string "account"
+      if (url.includes('account')) {
+        this.isLougout = false;
+      
+      } else {
+        this.isLougout = true
+      }
+    });
+    }
  
   logout() { 
     this.authService.logout(); 
