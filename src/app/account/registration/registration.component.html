@@ -8,12 +8,14 @@
   
     <label for="password" class="block mt-4 mb-2 font-semibold">Password:</label>
     <input type="password" id="password" formControlName="password" class="w-full p-2 border rounded-lg focus:outline-none focus:ring  " />
-   <div class="flex justify-between">
-       <button type="submit" [disabled]="registrationForm.invalid" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-         Register
-       </button>
-       <div class="mt-4 text-center">
-         <button (click)="signUpWithGoogle()" type="button" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:border-red-300">
+   <div class="flex content-between">
+    
+      <button type="submit" [disabled]="registrationForm.invalid" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+        Register
+      </button>
+  
+       <div class="mt-4 ml-3 text-center">
+         <button (click)="signUpWithGoogle()" type="button" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
            Register with Google
          </button>
        </div>

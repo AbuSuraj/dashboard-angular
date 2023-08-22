@@ -15,15 +15,15 @@
     <div *ngIf="showError" class="mt-4 text-red-500">
         {{ errorMessage }}
     </div>
-    <div>
+    <div class="flex content-between">
       <button type="submit" [disabled]="loginForm.invalid" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
         Login
       </button>
-      <div>
-        <div>
+      
+        <div class="ml-2">
           <button type="button" (click)="loginWithGoogle()" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ">Login with Google</button>
         </div>
-      </div>
+       
     </div>
 </form>
   
